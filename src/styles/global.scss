@@ -1,0 +1,69 @@
+@use "./mixin.scss" as mixin;
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Kalam&family=Lobster&family=Merriweather+Sans&family=Mogra&family=Patrick+Hand&family=Roboto&family=Ubuntu&display=swap");
+
+// font-family: 'Acme', sans-serif;
+// font-family: 'Kalam', cursive;
+// font-family: 'Lobster', cursive;
+// font-family: 'Merriweather Sans', sans-serif;
+// font-family: 'Mogra', cursive;
+// font-family: 'Patrick Hand', cursive;
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Ubuntu', sans-serif;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--family);
+	text-decoration: none;
+}
+
+.App {
+	@include mixin.width-height($h: 100vh);
+	@include mixin.hide-scrollbar();
+	background-color: var(--primary-bg);
+	overflow-y: auto;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	padding-bottom: 70px;
+}
+
+.frame {
+	@include mixin.width-height($h: auto);
+	@include mixin.flex($d: column);
+
+	.frame-header-div {
+		@include mixin.width-height($h: 70px);
+		@include mixin.flex($d: column);
+
+		.frame-title {
+			@include mixin.width-height();
+			text-align: center;
+			font-size: 35px;
+			color: var(--primary-fg);
+		}
+		.frame-subtitle {
+			@include mixin.width-height();
+			text-align: center;
+			font-size: 16px;
+			color: var(--secondary-fg);
+			font-weight: bold;
+		}
+	}
+
+	.setting-btn-div{
+        @include mixin.width-height($w:50px,$h:40px,$p:fixed);
+        @include mixin.flex();
+        left: 0;
+        top: 50px;
+        background-color: var(--highlight);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        z-index: 2;
+
+        .setting-icon{
+            @include mixin.width-height($w:30px,$h:30px);
+            color: var(--primary-bg);
+        }
+    }
+}

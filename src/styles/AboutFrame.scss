@@ -1,0 +1,91 @@
+@use "./mixin.scss" as mixin;
+
+.about-div {
+	@include mixin.width-height($w: 1100px, $h: auto);
+	@include mixin.flex($g: 30px, $d: column);
+	margin: 20px auto;
+
+    @include mixin.media-break($b:1140px){
+        @include mixin.width-height();
+        padding-inline: 40px
+    }
+
+    @include mixin.media-break($b:750px){
+        padding-inline: 20px
+    }
+    
+
+	.about-info-div {
+        @include mixin.width-height();
+        @include mixin.flex($g:50px,$jc:flex-start);
+
+        @include mixin.media-break($b:750px){
+            flex-direction: column;
+        }        
+
+		.img-div {
+			@include mixin.width-height($w: 300px, $h: auto);
+			@include mixin.flex();
+			min-width: 300px;
+
+			@include mixin.media-break($b: 830px) {
+				@include mixin.width-height($w: 250px);
+				min-width: 250px;
+			}
+
+			.image {
+				@include mixin.width-height();
+				max-height: 400px;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 10px;
+				z-index: 1;
+				transition: 0.2s all ease-in-out;
+			}
+
+			.about-img-back-layer {
+				@include mixin.width-height($h: 100%, $p: absolute);
+				background-color: var(--highlight);
+				border-radius: 10px;
+				transition: 0.2s all ease-in-out;
+				transform: rotate(5deg);
+			}
+
+			&:hover {
+				.image {
+					transform: rotate(5deg);
+				}
+				.about-img-back-layer {
+					transform: rotate(-5deg);
+				}
+			}
+		}
+
+		.about-intro-div {
+			@include mixin.width-height($h: 100%);
+			@include mixin.flex($d: column, $g: 10px,$ai:flex-start);
+
+			.about-description {
+				@include mixin.width-height();
+				color: var(--primary-fg);
+				font-size: 18px;
+				font-weight: bold;
+                letter-spacing: 1px;
+			}
+
+            button{
+                @include mixin.width-height($w:auto,$h:40px);
+                margin-top: 20px;
+                border-radius: 5px;
+                padding-inline: 10px;
+                background-color: var(--highlight);
+                color: var(--primary-bg);
+                font-size: 16px;
+                font-weight: bold;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+		}
+	}
+}

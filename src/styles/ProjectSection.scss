@@ -1,0 +1,84 @@
+@use "./mixin.scss" as mixin;
+
+
+.project-section{
+    @include mixin.width-height($w:1180px,$h:auto);
+    @include mixin.flex($d:column,$g:30px,$jc:flex-start);
+    margin: 20px auto;
+
+
+    @include mixin.media-break($b:1140px){
+        width: 100%;
+        padding-inline: 20px;
+    }
+
+    .project-info-div{
+        @include mixin.width-height();
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+        grid-gap:15px;
+
+
+        .project-div{
+            @include mixin.width-height($h:auto);
+            @include mixin.flex($d:column,$jc:flex-start);
+            padding: 15px;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+
+            .project-img{
+                @include mixin.width-height();
+                object-fit: cover;
+                object-position: center;
+                border-radius: 5px;
+            }
+
+            .project-title{
+                @include mixin.width-height();
+                text-align: center;
+                margin-top: 10px;
+                font-size: 25px;
+                color: var(--primary-fg);
+            }
+
+            .project-description{
+                @include mixin.width-height();
+                text-align: center;
+                font-size: 16px;
+                color: var(--secondary-fg);
+            }
+
+            .project-button-div{
+                @include mixin.width-height($h:40px);
+                @include mixin.flex($jc:flex-end,$g:15px);
+                margin-top: 15px;
+                font-size: 16px;
+                font-weight: bold;
+
+                a{
+                    @include mixin.width-height($w:auto,$h:100%);
+                    @include mixin.flex();
+                    border-radius: 5px;
+                    padding-inline: 10px;
+                }
+
+                .live-btn{
+                    background-color: var(--highlight);
+                    color: var(--primary-bg);
+                }
+                .github-btn{
+                    border: 1px solid var(--highlight);
+                    background-color: var(--secondary-bg);
+                    color: var(--highlight);
+
+                    transition: .2s all ease-in-out;
+                    
+                    &:hover{
+                        background-color: var(--highlight);
+                        color: var(--primary-bg);
+                    }
+                }
+            }
+        }
+    }
+}

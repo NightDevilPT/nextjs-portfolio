@@ -1,0 +1,97 @@
+@use "./mixin.scss" as mixin;
+
+.home-div {
+	@include mixin.width-height($w: 1100px, $h: auto);
+	@include mixin.flex($g: 40px, $jc: flex-start);
+	margin: 30px auto;
+
+
+	@include mixin.media-break($b:1180px){
+		@include mixin.width-height();
+		padding-inline: 40px;
+	}
+
+	@include mixin.media-break($b:700px){
+		flex-direction: column;
+		padding-inline: 20px;
+	}
+
+	.img-div {
+		@include mixin.width-height($w: 300px, $h: auto);
+		@include mixin.flex();
+		min-width: 300px;
+
+		@include mixin.media-break($b:830px){
+			@include mixin.width-height($w:250px);
+			min-width: 250px;
+		}
+
+		.image {
+			@include mixin.width-height();
+			max-height: 400px;
+			object-fit: cover;
+			object-position: center;
+			border-radius: 10px;
+			z-index: 1;
+		}
+
+		.img-back-layer {
+			@include mixin.width-height($h: 100%, $p: absolute);
+			background-color: var(--highlight);
+			border-radius: 10px;
+		}
+	}
+
+
+	.home-intro-div{
+		@include mixin.width-height($h:auto);
+		@include mixin.flex($d:column,$g:10px,$ai:flex-start);
+
+
+		.home-subtitle{
+			@include mixin.width-height();
+			text-align: left;
+			font-size: 28px;
+			color: var(--primary-fg);
+		}
+
+		.home-title{
+			@include mixin.width-height();
+			text-align: left;
+			font-size: 40px;
+			color: var(--highlight);
+		}
+
+		.home-description{
+			@include mixin.width-height();
+			text-align: left;
+			font-size: 20px;
+			font-weight: bold;
+			color: var(--primary-fg);
+		}
+
+		button{
+			@include mixin.width-height($w:auto,$h:40px);
+			@include mixin.flex($g:10px);
+			margin-top: 15px;
+			padding-inline: 15px;
+			color: var(--highlight);
+			border-radius: 10px;
+			border: 1px solid var(--highlight);
+			outline: none;
+			background-color: var(--primary-bg);
+			font-size: 16px;
+			font-weight: bold;
+			transition: .2s all ease-in-out;
+
+			.download-icon{
+				@include mixin.width-height($w:25px,$h:25px);
+			}
+
+			&:hover{
+				background-color: var(--highlight);
+				color: var(--primary-bg);
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+@use "./mixin.scss" as mixin;
+
+.menubar-section {
+	@include mixin.width-height($w: auto, $h: 60px, $p: fixed);
+	@include mixin.flex($g: 15px);
+	bottom: 10px;
+	padding-inline: 15px;
+	background-color: #000000a8;
+	z-index: 2;
+	backdrop-filter: blur(5px);
+	border-radius: 30px;
+
+	.menubar-tabs-btn {
+		@include mixin.width-height($w: 40px, $h: 40px);
+		@include mixin.flex();
+		text-decoration: none;
+		border-radius: 50%;
+		transition: 0.2s all ease-in-out;
+
+		.menubar-tabs-icon {
+			@include mixin.width-height($w: 70%, $h: 70%);
+			padding: 5px;
+			color: white;
+			transition: 0.2s all ease-in-out;
+		}
+	}
+
+	.active-menubar-tab-btn {
+		background-color: var(--highlight);
+		transition: 0.2s all ease-in-out;
+
+		.menubar-tabs-icon {
+			transition: 0.2s all ease-in-out;
+		}
+	}
+}

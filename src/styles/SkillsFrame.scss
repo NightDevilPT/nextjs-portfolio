@@ -1,0 +1,71 @@
+@use "./mixin.scss" as mixin;
+
+.skills-section {
+	@include mixin.width-height($w: 1100px, $h: auto);
+	@include mixin.flex($g: 20px, $d: column);
+	margin: 20px auto;
+
+	@include mixin.media-break($b: 1140px) {
+		width: 100%;
+		padding-inline: 20px;
+	}
+
+	.skills-info-div {
+		@include mixin.width-height($h: auto);
+		@include mixin.flex($g: 15px, $ai: flex-start, $w: wrap);
+
+		.skills-div {
+			@include mixin.width-height($h: 100px, $w: 210px);
+			@include mixin.flex($g: 10px, $jc: flex-start);
+            
+            @include mixin.media-break($b:475px){
+                width: 100%;
+            }
+
+			padding: 20px;
+			background-color: var(--secondary-bg);
+			border-radius: 10px;
+
+			.skill-progress-div {
+				@include mixin.width-height($w: 60px, $h: 60px);
+				@include mixin.flex();
+				min-width: 60px;
+				border-radius: 50%;
+				background-color: var(--highlight);
+
+				.skill-icon-div {
+					@include mixin.width-height(
+						$w: calc(100% - 10px),
+						$h: calc(100% - 10px)
+					);
+					@include mixin.flex();
+					background-color: var(--primary-bg);
+					border-radius: 50%;
+
+					.skills-icon {
+						@include mixin.width-height($w: 60%, $h: 60%);
+						color: var(--primary-fg);
+					}
+				}
+			}
+
+			.skill-info-div {
+				@include mixin.width-height($w: auto, $h: auto);
+				@include mixin.flex($d: column, $g: 3px, $ai: flex-start);
+				text-align: left;
+
+				.skill-title {
+					color: var(--primary-fg);
+					font-size: 20px;
+					font-weight: bold;
+				}
+
+				.skill-subtitle {
+					color: var(--secondary-fg);
+					font-size: 14px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}

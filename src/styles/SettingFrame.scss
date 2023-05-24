@@ -1,0 +1,142 @@
+@use "./mixin.scss" as mixin;
+
+.setting-section {
+	@include mixin.width-height($h: 100%, $p: fixed);
+	background-color: #000000b6;
+	right: 0;
+	top: 0;
+	z-index: 2;
+	transition: .2s all ease-in-out;
+
+	.setting-wrapper {
+		@include mixin.width-height($w: 320px, $h: 100%, $p: absolute);
+		@include mixin.flex($d: column, $g: 10px, $jc: flex-start);
+		right: 0;
+		top: 0;
+		background-color: var(--primary-bg);
+
+		.setting-header {
+			@include mixin.width-height($h: 50px);
+			@include mixin.flex($jc: space-between);
+			padding-inline: 15px;
+			border-bottom: 1px solid var(--secondary-fg);
+
+			h2 {
+				font-size: 20px;
+				color: var(--primary-fg);
+			}
+
+			.close-setting-icon {
+				@include mixin.width-height($w: 30px, $h: 30px);
+				color: var(--secondary-fg);
+				cursor: pointer;
+			}
+		}
+
+		.setting-div {
+			@include mixin.width-height($h: 60px, $w: calc(100% - 30px));
+			border: 1px dashed var(--secondary-fg);
+			border-radius: 10px;
+			margin-top: 10px;
+			padding-inline: 10px;
+
+			label {
+				@include mixin.width-height($w: auto, $p: absolute);
+				color: var(--secondary-fg);
+				font-weight: bold;
+				padding-inline: 5px;
+				background-color: var(--primary-bg);
+				left: 5px;
+				top: -10px;
+			}
+
+			.setting-option {
+				@include mixin.width-height($h: 35px);
+                padding-inline: 5px;
+				@include mixin.flex($g: 15px,$jc:flex-start);
+				top: 15px;
+
+				.color-tab {
+					@include mixin.width-height($w: 40px, $h: 30px);
+					border-radius: 5px;
+					outline: none;
+					border: none;
+					cursor: pointer;
+				}
+
+				.active-color-tab {
+                    @include mixin.width-height($w: 40px, $h: 30px);
+					
+                    &::after {
+						@include mixin.width-height(
+							$p: absolute,
+							$w: 46px,
+							$h: 36px
+						);
+                        content: "";
+						left: -4px;
+						top: -4px;
+                        border-radius: 5px;
+						border: 1px dashed var(--secondary-fg);
+					}
+				}
+			}
+		}
+
+
+		.font-setting-div{
+			min-height: 60px;
+			height: auto;
+			
+			.font-option{
+				@include mixin.width-height($h:auto);
+				@include mixin.flex($jc:flex-start,$ai:flex-start,$g:10px,$w:wrap);
+				padding-inline: 5px;
+				margin-top:15px;
+				margin-bottom: 10px;
+
+
+				.font-tabs{
+					@include mixin.width-height($w:60px,$h:40px);
+					@include mixin.flex($d:column,$g:2px,$ai:flex-start);
+					min-width: 70px;
+					background-color: white;
+					border-radius: 5px;
+					padding-inline: 5px;
+					cursor: pointer;
+
+					span{
+						color: black;
+						font-size: 17px;
+
+						&:last-child{
+							@include mixin.multi-line-break();
+							font-size: 10px;
+						}
+					}
+				}
+
+				.active-font-tab{
+					@include mixin.width-height($w:70px,$h:40px);
+					
+					&:after{
+						@include mixin.width-height($w:76px,$h:46px,$p:absolute);
+						content: "";
+						left: -4px;
+						top: -4px;
+						border: 1px dashed var(--secondary-fg);
+						border-radius: 5px;
+					}
+				}				
+			}
+		
+		
+		}
+	}
+}
+
+
+.hide-setting-section{
+	right: -100%;
+	transition: .2s all ease-in-out;
+}

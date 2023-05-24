@@ -1,0 +1,154 @@
+@use "./mixin.scss" as mixin;
+
+.contact-div{
+    @include mixin.width-height($w:1100px,$h:auto);
+    @include mixin.flex($d:column,$jc:flex-start,$g:20px);
+    margin: 20px auto;
+
+    @include mixin.media-break($b:1140px){
+        @include mixin.width-height();
+        padding-inline: 20px;
+    }
+
+
+    .contact-subheader{
+        @include mixin.width-height();
+        @include mixin.flex($d:column,$g:5px);
+
+        .subheader-title{
+            @include mixin.width-height();
+            color: var(--primary-fg);
+            font-size: 20px;
+        }
+
+        .subheader-subtitle{
+            @include mixin.width-height();
+            color: var(--secondary-fg);
+            font-size: 16px;
+        }
+    }
+
+    .contact-container{
+        @include mixin.width-height();
+        @include mixin.flex($g:40px,$ai:flex-start);
+
+        @include mixin.media-break($b:700px){
+            @include mixin.flex($g:40px,$d:column)
+        }
+
+        .contact-data{
+            @include mixin.width-height($w:300px,$h:auto);
+            @include mixin.flex($ai:flex-start,$jc:flex-start,$d:column,$g:10px);
+            min-width: 300px;
+
+            @include mixin.media-break($b:700px){
+                @include mixin.width-height();
+                gap: 20px
+            }
+
+            .contact-data-title{
+                @include mixin.width-height();
+                font-size: 20px;
+                color: var(--primary-fg);
+            }
+
+            .contact-data-description{
+                @include mixin.width-height();
+                color: var(--secondary-fg);
+                margin-bottom: 10px;
+            }
+
+            .contact-card-div{
+                @include mixin.width-height($h:auto);
+                @include mixin.flex($d:column,$g:10px);
+                background-color: var(--secondary-bg);
+                border-radius: 10px;
+                padding:20px;
+
+                .card-icon{
+                    @include mixin.width-height(30px,$h:30px);
+                    color: var(--primary-fg);
+                }
+
+                .card-title{
+                    @include mixin.width-height();
+                    text-align: center;
+                    color: var(--primary-fg);
+                    font-size: 19px;
+                }
+
+                .card-subtitle{
+                    color: var(--primary-fg);
+                    font-size: 15px;
+                }
+
+                a{
+                    text-decoration: none;
+                    font-size: 16px;
+                    color: var(--highlight);
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+        .contact-form{
+            @include mixin.width-height($h:auto);
+            @include mixin.flex($g:20px,$d:column,$jc:flex-start,$ai:flex-start);
+
+            input[type="text"]{
+                @include mixin.width-height($h:50px);
+                border-radius: 10px;
+                border: none;
+                outline: none;
+                border: 1px solid var(--active);
+                background-color: var(--primary-bg);
+                padding-inline: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                color: var(--secondary-fg);
+                
+                &::placeholder{
+                    color: var(--secondary-fg);
+                }
+            }
+
+            textarea{
+                @include mixin.width-height($h:200px);
+                border-radius: 10px;
+                border: 1px solid var(--active);
+                background-color: var(--primary-bg);
+                resize: none;
+                outline: none;
+                padding: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                color: var(--secondary-fg);
+
+
+                &::placeholder{
+                    color: var(--secondary-fg);
+                }
+            }
+
+            button{
+                @include mixin.width-height($w:auto,$h:40px);
+                @include mixin.flex($g:10px);
+                padding-inline: 15px;
+                border-radius: 20px;
+                border: none;
+                outline: none;
+                background-color: var(--highlight);
+                color: var(--primary-bg);
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+
+                .send-icon{
+                    @include mixin.width-height($w:30px,$h:30px);
+                    padding: 2px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+// ------- width height mixin
+@mixin width-height($w:100%,$h:auto,$p:relative){
+    width: $w;
+    height: $h;
+    position: $p;
+}
+
+// ------- display flex
+@mixin flex($d:row,$w:nowrap,$jc:center,$ai:center,$g:0px){
+    display: flex;
+    flex-direction: $d;
+    flex-wrap: $w;
+    justify-content: $jc;
+    align-items: $ai;
+    gap:$g;
+}
+
+// ------- hide scroll bar
+@mixin hide-scrollbar(){
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+// ------- Media Qurey Breaks
+@mixin media-break($b){
+    @media (max-width:$b){
+        @content;
+    }
+}
+
+// -------- Multi Line Text Overflow Ellipse
+@mixin multi-line-break($line: 1) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line; /* start showing ellipsis when 3rd line is reached */
+	white-space: pre-wrap;
+}

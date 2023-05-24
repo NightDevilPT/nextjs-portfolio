@@ -1,0 +1,26 @@
+@use "./mixin.scss" as mixin;
+
+.social-div {
+    margin-top: 10px;
+    @include mixin.width-height();
+    @include mixin.flex($g: 10px, $jc: flex-start);
+
+    a {
+        @include mixin.width-height($w: 35px, $h: 30px);
+        text-decoration: none;
+
+        .social-icons {
+            @include mixin.width-height($w:100%,$h:100%);
+            padding: 3px;
+            border-radius: 5px;
+            border: 1px solid var(--highlight);
+            color: var(--highlight);
+            transition: 0.2s all ease-in-out;
+
+            &:hover {
+                color: var(--primary-bg);
+                background-color: var(--highlight);
+            }
+        }
+    }
+}
