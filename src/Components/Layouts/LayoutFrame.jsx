@@ -53,11 +53,11 @@ const LayoutFrame = ({ children }) => {
 			dispatch(setSecondaryFg("#9298ba"));
 			dispatch(setActiveBg("#333a56"));
 		} else {
-			dispatch(setPrimaryBg("#f2f5f4"));
+			dispatch(setPrimaryBg("#dde6ed"));
 			dispatch(setPrimaryFg("#1c1f28"));
-			dispatch(setSecondaryBg("#ffffff"));
+			dispatch(setSecondaryBg("#f2f5f4"));
 			dispatch(setSecondaryFg("#5e5e6a"));
-			dispatch(setActiveBg("#e1e3f0"));
+			dispatch(setActiveBg("#b0b5d1"));
 		}
 	}, [theme, fontFamily, highlight]);
 
