@@ -30,7 +30,7 @@ const LayoutFrame = ({ children }) => {
 		const isHighlight = window.localStorage.getItem("highlight");
 
 		if (!isTheme) {
-			window.localStorage.getItem("theme", "dark");
+			dispatch(setTheme("dark"));
 		}
 
 		if (!isFont) {
