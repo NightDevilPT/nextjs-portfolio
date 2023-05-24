@@ -26,28 +26,30 @@ const LayoutFrame = ({ children }) => {
 
 	useEffect(() => {
 		const isTheme = window.localStorage.getItem("theme");
-		const isFont = window.localStorage.getItem('fontFamily');
-		const isHighlight = window.localStorage.getItem('highlight')
+		const isFont = window.localStorage.getItem("fontFamily");
+		const isHighlight = window.localStorage.getItem("highlight");
 
-		console.log(isTheme,isFont,isHighlight);
-
-		if (isTheme) {
-			dispatch(setTheme(isTheme));
+		if (!isTheme) {
+			window.localStorage.getItem("theme", "dark");
 		}
 
-		if (isFont) {
-			dispatch(setFontFamily(isFont));
+		if (!isFont) {
+			dispatch(setFontFamily(`'Ubuntu', sans-serif`));
 		}
 
-		if (isHighlight) {
-			dispatch(setHighlight(isHighlight));
+		if (!isHighlight) {
+			dispatch(setHighlight("#46aaeb"));
 		}
+
+		window.localStorage.setItem("theme", theme);
+		window.localStorage.setItem("highlight", highlight);
+		window.localStorage.setItem("fontFamily", fontFamily);
 	}, []);
 
 	useEffect(() => {
 		window.localStorage.setItem("theme", theme);
-		window.localStorage.setItem('highlight',highlight);
-		window.localStorage.setItem('fontFamily',fontFamily);
+		window.localStorage.setItem("highlight", highlight);
+		window.localStorage.setItem("fontFamily", fontFamily);
 
 		if (theme === "dark") {
 			dispatch(setPrimaryBg("#1f1d36"));
@@ -62,7 +64,7 @@ const LayoutFrame = ({ children }) => {
 			dispatch(setSecondaryFg("#5e5e6a"));
 			dispatch(setActiveBg("#e1e3f0"));
 		}
-	}, [theme,fontFamily,highlight]);
+	}, [theme, fontFamily, highlight]);
 
 	return (
 		<div
