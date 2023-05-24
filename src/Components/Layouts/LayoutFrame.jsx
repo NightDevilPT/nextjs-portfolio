@@ -8,7 +8,8 @@ import {
 	setSecondaryFg,
 	setTheme,
 } from "@/redux/settingSlicer";
-import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const LayoutFrame = ({ children }) => {
@@ -25,31 +26,25 @@ const LayoutFrame = ({ children }) => {
 	} = useSelector((state) => state.setting);
 
 	useEffect(() => {
-		const isTheme = window.localStorage.getItem("theme");
-		const isFont = window.localStorage.getItem("fontFamily");
-		const isHighlight = window.localStorage.getItem("highlight");
+		window.localStorage.setItem(
+			"theme",
+			theme || window.localStorage.getItem("theme") || "dark"
+		);
+		dispatch(setTheme(window.localStorage.getItem("theme")));
 
-		if (!isTheme) {
-			dispatch(setTheme("dark"));
-		}
+		window.localStorage.setItem(
+			"fontFamily",
+			fontFamily ||
+				window.localStorage.getItem("fontFamily") ||
+				`'Ubuntu', sans-serif`
+		);
+		dispatch(setFontFamily(window.localStorage.getItem("fontFamily")));
 
-		if (!isFont) {
-			dispatch(setFontFamily(`'Ubuntu', sans-serif`));
-		}
-
-		if (!isHighlight) {
-			dispatch(setHighlight("#46aaeb"));
-		}
-
-		window.localStorage.setItem("theme", theme);
-		window.localStorage.setItem("highlight", highlight);
-		window.localStorage.setItem("fontFamily", fontFamily);
-	}, []);
-
-	useEffect(() => {
-		window.localStorage.setItem("theme", theme);
-		window.localStorage.setItem("highlight", highlight);
-		window.localStorage.setItem("fontFamily", fontFamily);
+		window.localStorage.setItem(
+			"highlight",
+			highlight || window.localStorage.getItem("highlight") || "#46aaeb"
+		);
+		dispatch(setHighlight(window.localStorage.getItem("highlight")));
 
 		if (theme === "dark") {
 			dispatch(setPrimaryBg("#1f1d36"));
