@@ -20,8 +20,8 @@
 
 
         .project-div{
-            @include mixin.width-height($h:auto);
-            @include mixin.flex($d:column,$jc:flex-start);
+            @include mixin.width-height($h:100%);
+            @include mixin.flex($d:column,$jc:space-around);
             padding: 15px;
             background-color: var(--secondary-bg);
             border-radius: 10px;
@@ -43,13 +43,16 @@
 
             .project-description{
                 @include mixin.width-height();
+                @include mixin.multi-line-break($line:4);
+                // @include mixin.hide-scrollbar();
                 text-align: center;
                 font-size: 16px;
                 color: var(--secondary-fg);
+                // overflow-y:auto;
             }
 
             .project-button-div{
-                @include mixin.width-height($h:40px);
+                @include mixin.width-height($h:40px,$p:sticky);
                 @include mixin.flex($jc:flex-end,$g:15px);
                 margin-top: 15px;
                 font-size: 16px;

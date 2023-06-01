@@ -47,8 +47,8 @@ const ContactFrame = () => {
 					>
 						<IoIosMailOpen className="card-icon" />
 						<h4 className="card-title">Mail Me</h4>
-						<p className="card-subtitle">nightdevilpt@gmail.com</p>
-						<a href="mailto:pawankumartadagsingh@gmail.com">
+						<p className="card-subtitle">pawankumar080399@gmail.com</p>
+						<a href="mailto:pawankumar080399@gmail.com">
 							Send Message
 						</a>
 					</motion.div>
@@ -65,7 +65,7 @@ const ContactFrame = () => {
 						}}
 					>
 						<FaFacebookMessenger className="card-icon" />
-						<h4 className="card-title">Messanger</h4>
+						<h4 className="card-title">Messenger</h4>
 						<p className="card-subtitle">nightdevil8</p>
 						<a href="https://m.me/nightdevil8">Send Message</a>
 					</motion.div>

@@ -79,3 +79,4 @@ export const ProjectCard = ({
     </div>
   </motion.div>;
 };
+
