@@ -4,12 +4,21 @@ import TitleFrame from "./Layouts/TitleFrame";
 import calculator from "../images/calculatorApp.png";
 import dashboard from "../images/jobDashboard.png";
 import weather from "../images/weatherApp.png";
+import moviehub from "../images/moviehub.png";
 import Image from "next/image";
+
 
 import {motion} from "framer-motion";
 import variants from "@/variants";
 
 const projectsData = [
+	{
+		img: moviehub,
+		title: "MovieHUB Web App",
+		description: `In this MovieHUB web app you can search Movies,Tvshows and Peoples data.You can also add custome Theme, font Family and i user TMDB API.`,
+		link: "https://movie-hub-git-main-nightdevilpt.vercel.app/",
+		github: "https://github.com/NightDevilPT/movie-hub",
+	},
 	{
 		img: weather,
 		title: "Weather Web App",
