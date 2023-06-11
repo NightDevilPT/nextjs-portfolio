@@ -20,6 +20,13 @@ const projectsData = [
 		github: "https://github.com/NightDevilPT/movie-hub",
 	},
 	{
+		img: dashboard,
+		title: "Job Desktop Dashboard",
+		description: `This is just Job Desktop Dashboard Front End Design created using ReactJS. In this project I created a custome Carousel Effect without using Swiper.JS.`,
+		link: "https://dashboard-pc-design-git-main-nightdevilpt.vercel.app/",
+		github: "https://github.com/NightDevilPT/dashboard-pc-design",
+	},
+	{
 		img: weather,
 		title: "Weather Web App",
 		description: `With the help of this weather web app, you can know the weather of any country.You can change the theme with the help of theme changer on this weather app project.`,
@@ -32,13 +39,6 @@ const projectsData = [
 		description: `You can only do simple calculations on this web app.You can also change the theme of this calculator and change the colors of the buttons.`,
 		link: "https://nightdevilpt.github.io/react-calculator/",
 		github: "https://github.com/NightDevilPT/react-calculator",
-	},
-	{
-		img: dashboard,
-		title: "Job Desktop Dashboard",
-		description: `This is just Job Desktop Dashboard Front End Design created using ReactJS. In this project I created a custome Carousel Effect without using Swiper.JS.`,
-		link: "https://dashboard-pc-design-git-main-nightdevilpt.vercel.app/",
-		github: "https://github.com/NightDevilPT/dashboard-pc-design",
 	},
 ];
 
